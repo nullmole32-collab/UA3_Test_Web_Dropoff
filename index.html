@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>UA3 Map</title>
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+
+  <link rel="stylesheet" href="home.css" />
+</head>
+
+<body>
+  <!-- Top Bar -->
+  <div id="topbar">
+    <button id="viewBtn">View</button>
+    <button id="editBtn">Edit</button>
+    <button id="addBtnTop" class="mode-btn hidden">+ Add location</button>
+    <button id="detailBtn">Detailed</button>
+
+    <!-- Add this block (legend on the right) -->
+  <div id="mapKey">
+    <span class="key-item">
+      <span class="key-dot key-hub"></span> Hub
+    </span>
+    <span class="key-item">
+      <span class="key-dot key-deliver"></span> Deliver
+    </span>
+    <span class="key-item">
+      <span class="key-dot key-none"></span> No Delivery
+    </span>
+  </div>
+</div>
+  </div>
+
+  <!-- Map -->
+  <div id="map"></div>
+
+  <!-- Detailed panel (spreadsheet) -->
+  <div id="detailedPanel" class="hidden">
+  <div id="detailTableWrapper">
+    <!-- table will be injected here -->
+  </div>
+</div>
+
+
+  <!-- FULL-SCREEN EDIT OVERLAY -->
+  <div id="editOverlay" class="hidden">
+    <div id="editOverlayInner">
+      <h3 id="overlayTitle">Edit Location</h3>
+
+      <label>
+        Location name<br />
+        <input type="text" id="locationInput" />
+      </label>
+
+      <label>
+        Hub<br />
+        <select id="hubInput">
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select>
+      </label>
+
+      <label>
+        Address<br />
+        <input type="text" id="addressInput" />
+      </label>
+
+      <label>
+        Viability (0–10)<br />
+        <input type="text" id="viabilityInput" />
+      </label>
+
+      <label>
+        Notes<br />
+        <textarea id="notesInput" rows="3"></textarea>
+      </label>
+
+      <label>
+        Expecting load<br />
+        <select id="expectingInput">
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select>
+      </label>
+
+      <label>
+        Driver<br />
+        <input type="text" id="driverInput" />
+      </label>
+
+      <div class="latlng-row">
+        <div>
+          Lat<br />
+          <input type="text" id="latInput" readonly />
+        </div>
+        <div>
+          Lng<br />
+          <input type="text" id="lngInput" readonly />
+        </div>
+      </div>
+
+      <div class="overlay-buttons">
+        <button id="saveBtn">Save</button>
+        <button id="cancelBtn" type="button">Cancel</button>
+      </div>
+
+      <div id="status"></div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="home.js"></script>
+</body>
+</html>
